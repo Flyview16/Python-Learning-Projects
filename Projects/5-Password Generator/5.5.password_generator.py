@@ -36,11 +36,12 @@ for char in range (1, nr_numbers + 1):
 for char in range (1, nr_symbols + 1):
     password_list.append(random.choice(symbols))
 
-print(password_list)
+#Shuffle list items
 random.shuffle(password_list)
-print(password_list)
 
+#Print out list items as one password
 password = ""
+
 for char in password_list:
     password += char
 
