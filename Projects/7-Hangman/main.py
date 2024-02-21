@@ -1,6 +1,65 @@
 import random
 
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 word_list = ["aardvark", "baboon", "camel"]
+end_of_game = False
+lives = 6
 
 #Randomly choose a word from the word_list 
 chosen_word = random.choice(word_list)
@@ -9,7 +68,6 @@ for num in chosen_word:
     display.append("_")
 print(display)
 
-end_of_game = False
 
 while not end_of_game:
 
@@ -22,9 +80,17 @@ while not end_of_game:
         if letter == guess:
             display[position] = letter
 
-    print(display)
-    
-    # Check if there are no more blanks in display and end game
+    #Check if guess is not in chosen_word
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            end_of_game = True
+            print("You lose")
+
+    # Check if user got all letters
     if "_" not in display:
         end_of_game = True
         print("You win")
+
+    # Print ASCII art for stages based on lives
+    print(stages[lives])
