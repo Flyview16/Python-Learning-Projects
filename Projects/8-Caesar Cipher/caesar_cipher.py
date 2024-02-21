@@ -18,5 +18,21 @@ def encrypt(plain_text, shift):
     
     print(f"The encoded text is {cipher_text}")
 
+def decrypt(cipher_text, shift):
+    plain_text = ""
+    for letter in cipher_text:
+        position = alphabet.index(letter)
+        old_position = position - shift
+        plain_text += alphabet[old_position]
+    
+    print(f"The decoded text is {plain_text}")
 
-encrypt(plain_text = text, shift = shift)
+
+if direction == "encode":
+    encrypt(plain_text = text, shift = shift)
+elif direction == "decode":
+    decrypt(encoded_message = text, shift = shift)
+else:
+    print("Invalid instruction.")
+
+
