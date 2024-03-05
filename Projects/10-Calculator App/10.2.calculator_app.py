@@ -1,3 +1,5 @@
+import os
+
 #Calculator
 from art import logo
 
@@ -48,6 +50,7 @@ def calculator():
             num1 = result
         else:
             should_continue = False
+            os.system('cls')
             calculator()
 
 
