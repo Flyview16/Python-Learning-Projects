@@ -1,6 +1,8 @@
 from art import logo, vs
 import random
+import os
 from game_data import data
+
 
 def format_data(option):
     """Take option data and return printable format"""
@@ -40,6 +42,10 @@ while not game_over:
 
     #Check if user is right
     is_correct = check_answer(choice, a_follower_count, b_follower_count)
+
+    #Clear screen after each round
+    os.system('cls')
+    print(logo)
 
     #Feedback and keeping track of score
     if is_correct:
