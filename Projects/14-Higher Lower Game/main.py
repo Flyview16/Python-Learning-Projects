@@ -26,10 +26,10 @@ option2 = random.choice(data)
 if option1 == option2:
     option2 = random.choice(data)
 
+print(logo)
+
 #Make game repeatable
 while not game_over:
-    print(logo)
-
     print(f"Compare A: {format_data(option1)}")
     print(vs)
     print(f"Against B: {format_data(option2)}")
