@@ -24,41 +24,29 @@ option2 = random.choice(data)
 if option1 == option2:
     option2 = random.choice(data)
 
+#Make game repeatable
+while not game_over:
+    print(logo)
 
-#print(logo)
+    print(f"Compare A: {format_data(option1)}")
+    print(vs)
+    print(f"Against B: {format_data(option2)}")
 
-print(f"Compare A: {format_data(option1)}")
-#print(vs)
-print(f"Against B: {format_data(option2)}")
+    #Take player choice
+    choice = input("Who has more followers? Type 'A' or 'B': ").lower()
 
-choice = input("Who has more followers? Type 'A' or 'B': ").lower()
+    a_follower_count = option1['follower_count']
+    b_follower_count = option2['follower_count']
 
-a_follower_count = option1['follower_count']
-b_follower_count = option2['follower_count']
+    #Check if user is right
+    is_correct = check_answer(choice, a_follower_count, b_follower_count)
 
-is_correct = check_answer(choice, a_follower_count, b_follower_count)
-
-#Feedback and keeping track of score
-if is_correct:
-    score += 1
-    print(f"You're right! Current score: {score}")
-else:
-    print(f"Sorry you're wrong. Final score: {score}")
-
-if choice == 'A':
-    if option1['follower_count'] >= option2['follower_count']:
+    #Feedback and keeping track of score
+    if is_correct:
         score += 1
+        print(f"You're right! Current score: {score}")
         option1 = option2
         option2 = random.choice(data)
     else:
+        print(f"Sorry you're wrong. Final score: {score}")
         game_over = True
-elif choice == 'B':
-    if option2['follower_count'] >= option1['follower_count']:
-        score += 1
-        option1 = option2
-        option2 = random.choice(data)
-    else:
-        game_over = True
-else:
-    print("Invalid input. Start again.")
-    game_over = True
