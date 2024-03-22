@@ -13,6 +13,14 @@ screen.tracer(0)    # turn off animation
 # Creating snake body
 snake = Snake()
 
+# Set listener to monitor keystrokes
+screen.listen()
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
+
+
 # Move snake
 game_on = True
 while game_on:
