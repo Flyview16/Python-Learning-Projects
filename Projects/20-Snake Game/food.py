@@ -11,6 +11,10 @@ class Food(Turtle):
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)  # Half the length and width of the circle
         self.color("blue")
         self.speed("fastest")
+
+
+
+    def refresh(self):
         random_x = random.randint(-280, 280)
         random_y = random.randint(-280, 280)
         self.goto(random_x, random_y)
