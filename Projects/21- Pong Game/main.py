@@ -17,10 +17,10 @@ l_paddle = Paddle((-350, 0))
 
 # Set up paddle key controls
 screen.listen()
-screen.onkey(r_paddle.go_up, key="Up")
-screen.onkey(r_paddle.go_down, key="Down")
-screen.onkey(l_paddle.go_up, key="w")
-screen.onkey(l_paddle.go_down, key="s")
+screen.onkeypress(r_paddle.go_up, key="Up")
+screen.onkeypress(r_paddle.go_down, key="Down")
+screen.onkeypress(l_paddle.go_up, key="w")
+screen.onkeypress(l_paddle.go_down, key="s")
 
 # Create ball object
 ball = Ball()

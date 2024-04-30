@@ -22,7 +22,7 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_move *= -1
-        self.move_speed *= 0.75  # increase ball speed after it hit paddle
+        self.move_speed *= 0.9  # increase ball speed after it hit paddle
 
     def reset(self):
         self.home()
