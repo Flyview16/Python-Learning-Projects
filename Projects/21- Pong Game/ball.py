@@ -9,6 +9,7 @@ class Ball(Turtle):
         self.penup()
         self.x_move = 10
         self.y_move = 10
+        self.move_speed = 0.1
 
     def move(self):
         new_x_pos = self.xcor() + self.x_move
@@ -21,7 +22,11 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_move *= -1
+        self.move_speed *= 0.75  # increase ball speed after it hit paddle
 
     def reset(self):
         self.home()
+        self.move_speed = 0.1
         self.bounce_x()
+
+
