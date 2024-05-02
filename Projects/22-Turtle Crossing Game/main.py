@@ -9,9 +9,10 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-# Set up player and cars
+# Set up objects
 player = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkeypress(player.move, key="Up")
@@ -32,6 +33,7 @@ while game_is_on:
     if player.at_finish_line():
         player.goto_start()
         car_manager.level_up()
+        scoreboard.increase_level()
 
 
 
