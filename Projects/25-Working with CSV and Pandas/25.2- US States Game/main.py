@@ -20,7 +20,17 @@ guessed_state = []
 while len(guessed_state) < 50:
     # Take user input
     answer_state = screen.textinput(title=f"{len(guessed_state)}/50 Correct States", prompt="What is the name of a "
-                                                                                            "state?").title()
+                                                                                            "state? Type exit to end").title()
+    # Exiting game
+    if answer_state == "Exit":
+        missing_states = []
+        for state in states:
+            if state not in guessed_state:
+                missing_states.append(state)
+        # Generate new csv file for all states not guessed by user
+        new_data = pandas.DataFrame(missing_states)
+        new_data.to_csv("states_to_learn.csv")
+        break
 
     # Check if answer is part of states
     if answer_state in states:
@@ -32,4 +42,4 @@ while len(guessed_state) < 50:
         t.goto(int(state_data.x.iloc[0]), int(state_data.y.iloc[0]))
         t.write(answer_state)
 
-screen.exitonclick()
+
